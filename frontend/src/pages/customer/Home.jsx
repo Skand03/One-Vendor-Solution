@@ -48,6 +48,13 @@ const Home = () => {
         setSettings(settRes.data);
       } catch (err) {
         console.error('Error fetching home data:', err);
+        // Fallback to hardcoded categories
+        setCategories([
+          { id: 1, name: 'School Essentials', description: 'Complete wholesale supplies, uniform programs, state-of-the-art laboratory setups, smart classroom configurations, and high-durability institutional furniture.', imageUrl: '/all-images/Onevendorsolutions/school.jpg' },
+          { id: 2, name: 'Home Services', description: 'High-end interior design, premium furniture, modular kitchens, tiles, granite, painting, electrical, plumbing, and general renovations.', imageUrl: '/all-images/Onevendorsolutions/home.jpg' },
+          { id: 3, name: 'Office Requirements', description: 'Ergonomic office furniture, conference rooms, high-capacity workstations, server networking, security setups, and annual maintenance contracts.', imageUrl: '/all-images/Onevendorsolutions/office-desk.jpg' },
+          { id: 4, name: 'Coaching Classes', description: 'Optimized learning desks, high-quality whiteboards, audio-visual project setups, and fire safety systems.', imageUrl: '/all-images/Onevendorsolutions/projectro-office-school.jpg' }
+        ]);
       }
     };
     loadData();
@@ -394,8 +401,8 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <section className="py-xl bg-surface-container-low">
-        <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
+        <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+          <div className="space-y-8 flex flex-col justify-center">
             <h2 className="font-headline-lg text-3xl font-bold text-primary leading-tight">Setting the Gold Standard in Sourcing</h2>
             <p className="text-on-surface-variant text-sm leading-relaxed">We bring institutional discipline, wholesale cost benefits, and transparency to your supply pipeline.</p>
             
@@ -434,14 +441,14 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
+          <div className="relative flex items-end">
+            <div className="rounded-2xl overflow-hidden shadow-2xl bg-surface-container w-full h-full flex items-end">
               <video 
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-auto"
+                className="w-full h-auto max-h-full object-contain object-bottom"
               >
                 <source src="/all-images/Onevendorsolutions/The_video_will_be_displayed_in.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
