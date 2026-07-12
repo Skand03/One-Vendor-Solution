@@ -435,7 +435,7 @@ const Home = () => {
           </div>
           
           <div className="relative flex items-end">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-surface-container w-full h-full flex items-end">
+            <div className="rounded-2xl overflow-hidden shadow-2xl w-full h-full flex items-end">
               <video 
                 autoPlay
                 loop
