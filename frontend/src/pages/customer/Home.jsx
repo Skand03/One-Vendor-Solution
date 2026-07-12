@@ -245,6 +245,39 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Marquee Section */}
+      <section className="h-[25px] bg-gold-accent overflow-hidden flex items-center">
+        <div className="flex whitespace-nowrap animate-marquee">
+          <span className="text-primary font-poppins font-bold text-sm px-8">School Essentials</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Office Requirements</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Coaching Classes</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Home Services</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">24 Hours Available</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Corporate Procurement</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">B2B Solutions</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">School Essentials</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Office Requirements</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Coaching Classes</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Home Services</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">24 Hours Available</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">Corporate Procurement</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+          <span className="text-primary font-poppins font-bold text-sm px-8">B2B Solutions</span>
+        </div>
+      </section>
+
       {/* Company Introduction / Overview */}
       <section className="py-xl bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row items-center gap-12">

@@ -72,25 +72,36 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Stats Strip */}
-        <section className="bg-primary-container py-12 border-y border-gold-accent/20">
-          <div className="max-w-container-max mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-            <div className="space-y-1">
-              <div className="text-gold-accent font-poppins font-bold text-3xl md:text-4xl">10+</div>
-              <div className="text-surface-variant font-label-md text-xs uppercase tracking-wider">Years of Experience</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-gold-accent font-poppins font-bold text-3xl md:text-4xl">5000+</div>
-              <div className="text-surface-variant font-label-md text-xs uppercase tracking-wider">Clients Served</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-gold-accent font-poppins font-bold text-3xl md:text-4xl">15+</div>
-              <div className="text-surface-variant font-label-md text-xs uppercase tracking-wider">Categories Covered</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-gold-accent font-poppins font-bold text-3xl md:text-4xl">50+</div>
-              <div className="text-surface-variant font-label-md text-xs uppercase tracking-wider">Cities Covered</div>
-            </div>
+        {/* Marquee Section */}
+        <section className="h-[25px] bg-gold-accent overflow-hidden flex items-center">
+          <div className="flex whitespace-nowrap animate-marquee">
+            <span className="text-primary font-poppins font-bold text-sm px-8">School Essentials</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Office Requirements</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Coaching Classes</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Home Services</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">24 Hours Available</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Corporate Procurement</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">B2B Solutions</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">School Essentials</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Office Requirements</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Coaching Classes</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Home Services</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">24 Hours Available</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">Corporate Procurement</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">•</span>
+            <span className="text-primary font-poppins font-bold text-sm px-8">B2B Solutions</span>
           </div>
         </section>
 
