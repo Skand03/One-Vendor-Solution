@@ -197,8 +197,8 @@ const AboutUs = () => {
                   
                   <div className="mt-8 flex gap-4">
                     <a 
-                      href="#manifesto" 
-                      onClick={(e) => { e.preventDefault(); alert("Corporate Manifesto PDF downloaded successfully!"); }}
+                      href="/One-Vendor-Solutions-Manifesto.pptx" 
+                      download="One-Vendor-Solutions-Manifesto.pptx"
                       className="bg-primary hover:bg-primary-container text-white p-3 rounded-lg flex items-center gap-2 text-xs font-bold border border-transparent shadow transition-all active:scale-95"
                     >
                       <span className="material-symbols-outlined text-[16px]">description</span>
