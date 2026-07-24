@@ -2,16 +2,26 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup } from '../../utils/seo';
 
 const NotFound = () => {
   useEffect(() => {
     setMetaTags(
-      '404 - Page Not Found',
+      '404 — Page Not Found | One Vendor Solutions',
       'The page you are looking for could not be found on One Vendor Solutions. Return to our homepage to continue exploring bulk procurement solutions.',
-      undefined,
+      '/og-image.jpg',
       'website',
-      { keywords: '404, page not found, error page', robots: 'noindex, nofollow' }
+      { robots: 'noindex, nofollow' }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: '404 — Page Not Found',
+        description: 'This page does not exist on the One Vendor Solutions website.',
+        url: typeof window !== 'undefined' ? window.location.href : 'https://www.onevendorsolutions.com/404',
+      },
+      'ld-json-404'
     );
   }, []);
 

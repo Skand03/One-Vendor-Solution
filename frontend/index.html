@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-IN" dir="ltr">
   <head>
-    <!-- Inline CSS to hide skip link immediately -->
+    <!-- Critical inline CSS for skip link + prevent FOUC -->
     <style>
       .sr-only {
         position: absolute;
@@ -33,6 +33,7 @@
         box-shadow: 0 4px 20px rgba(10, 35, 66, 0.2);
       }
     </style>
+
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- CORE META                                               -->
     <!-- ═══════════════════════════════════════════════════════ -->
@@ -41,34 +42,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- DEFAULT SEO — overridden per page by seo.js            -->
+    <!-- PRIMARY SEO — Google, Bing, Safari, DuckDuckGo         -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <title>One Vendor Solutions | School, Office &amp; Home Bulk Procurement India</title>
-    <meta name="description" content="One Vendor Solutions is India's leading B2B bulk procurement partner for schools, offices, and homes. Get verified vendors for stationery, furniture, IT equipment, and more." />
-    <meta name="keywords" content="B2B procurement India, bulk stationery, school essentials wholesale, office supplies bulk, home essentials supplier, One Vendor Solutions, Ujjwal Pandey" />
-    <meta name="author" content="One Vendor Solutions" />
+    <meta name="description" content="One Vendor Solutions — India's trusted B2B bulk procurement partner. Single-point sourcing for schools, offices and homes: furniture, stationery, IT, interiors &amp; more. Based in Gorakhpur, serving PAN India." />
+    <meta name="keywords" content="One Vendor Solutions, B2B procurement India, bulk procurement Gorakhpur, school essentials wholesale, office supplies bulk India, home essentials supplier, Ujjwal Pandey, single vendor procurement, corporate procurement India, school furniture supplier" />
+    <meta name="author" content="One Vendor Solutions — Ujjwal Pandey" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="rating" content="general" />
-    <meta name="language" content="English" />
+    <meta name="language" content="en-IN" />
     <meta name="revisit-after" content="7 days" />
-    <meta name="geo.region" content="IN" />
-    <meta name="geo.placename" content="India" />
     <meta name="copyright" content="One Vendor Solutions 2024" />
 
+    <!-- Geo tags — helps Google Maps + local search -->
+    <meta name="geo.region" content="IN-UP" />
+    <meta name="geo.placename" content="Gorakhpur, Uttar Pradesh, India" />
+    <meta name="geo.position" content="26.7606;83.3732" />
+    <meta name="ICBM" content="26.7606, 83.3732" />
+
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- OPEN GRAPH — WhatsApp, Facebook, LinkedIn               -->
+    <!-- CANONICAL + SITEMAP                                     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <link rel="canonical" href="https://www.onevendorsolutions.com" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- OPEN GRAPH — WhatsApp, Facebook, LinkedIn, Slack        -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="One Vendor Solutions" />
     <meta property="og:title" content="One Vendor Solutions | School, Office &amp; Home Bulk Procurement India" />
-    <meta property="og:description" content="India's leading B2B bulk procurement partner. Simplify your supply chain for schools, offices, and homes with verified vendors." />
-    <meta property="og:url" content="https://onevendorsolutions.com" />
-    <meta property="og:image" content="https://onevendorsolutions.com/og-image.jpg" />
+    <meta property="og:description" content="India's trusted B2B bulk procurement partner. Single-point sourcing for schools, offices and homes. Furniture, stationery, IT, interiors &amp; more — delivered PAN India." />
+    <meta property="og:url" content="https://www.onevendorsolutions.com" />
+    <meta property="og:image" content="https://www.onevendorsolutions.com/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://www.onevendorsolutions.com/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="One Vendor Solutions — B2B Procurement India" />
+    <meta property="og:image:alt" content="One Vendor Solutions — B2B Bulk Procurement India" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
@@ -78,9 +91,9 @@
     <meta name="twitter:site" content="@OneVendorSol" />
     <meta name="twitter:creator" content="@OneVendorSol" />
     <meta name="twitter:title" content="One Vendor Solutions | Bulk Procurement India" />
-    <meta name="twitter:description" content="India's leading B2B bulk procurement partner for schools, offices, and homes." />
-    <meta name="twitter:image" content="https://onevendorsolutions.com/og-image.jpg" />
-    <meta name="twitter:image:alt" content="One Vendor Solutions" />
+    <meta name="twitter:description" content="India's trusted B2B bulk procurement partner for schools, offices and homes. Single-point sourcing — delivered PAN India." />
+    <meta name="twitter:image" content="https://www.onevendorsolutions.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="One Vendor Solutions — B2B Procurement India" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- PWA / MOBILE                                            -->
@@ -99,39 +112,37 @@
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- FAVICONS & ICONS                                        -->
     <!-- ═══════════════════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#C9A84C" />
-    <link rel="canonical" href="https://onevendorsolutions.com" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- PRECONNECT (Performance — DNS resolution ahead of time) -->
+    <!-- PRECONNECT — resolves DNS before page loads             -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://xwaaptqgbmsvwtrpsdtc.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <link rel="dns-prefetch" href="https://wa.me" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- FONTS — Critical CSS for LCP                           -->
+    <!-- FONTS — non-blocking load for performance               -->
     <!-- ═══════════════════════════════════════════════════════ -->
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" 
-      rel="stylesheet" 
-      media="print" 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
     </noscript>
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
@@ -141,27 +152,41 @@
     </noscript>
 
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- DEFAULT JSON-LD SCHEMA (upgraded per page by seo.js)   -->
+    <!-- DEFAULT JSON-LD SCHEMA — Organisation + WebSite        -->
+    <!-- Updated per-page by seo.js setSchemaMarkup()           -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <script type="application/ld+json" id="ld-json-schema-org">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
-          "@id": "https://onevendorsolutions.com/#organization",
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "https://www.onevendorsolutions.com/#organization",
           "name": "One Vendor Solutions",
-          "url": "https://onevendorsolutions.com",
+          "alternateName": "OVS",
+          "url": "https://www.onevendorsolutions.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://onevendorsolutions.com/logo.jpeg",
+            "url": "https://www.onevendorsolutions.com/logo.jpeg",
             "width": 200,
             "height": 200
           },
-          "description": "India's leading B2B bulk procurement partner for schools, offices, and homes.",
+          "image": "https://www.onevendorsolutions.com/og-image.jpg",
+          "description": "One Vendor Solutions is India's trusted B2B bulk procurement partner providing single-point sourcing for schools, offices, and homes across India.",
           "email": "onevendorsolutions@gmail.com",
           "telephone": "+918576084127",
           "foundingDate": "2023",
+          "priceRange": "₹₹",
+          "currenciesAccepted": "INR",
+          "paymentAccepted": "Cash, Bank Transfer, UPI",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          ],
           "founder": {
             "@type": "Person",
             "name": "Ujjwal Pandey",
@@ -169,24 +194,49 @@
           },
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Near water sport complex gorakhpur",
+            "streetAddress": "Near Water Sport Complex",
             "addressLocality": "Gorakhpur",
             "addressRegion": "Uttar Pradesh",
+            "postalCode": "273001",
             "addressCountry": "IN"
-          }
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "26.7606",
+            "longitude": "83.3732"
+          },
+          "hasMap": "https://www.google.com/maps?q=26.7606,83.3732",
+          "sameAs": [
+            "https://wa.me/918576084127",
+            "https://www.onevendorsolutions.com"
+          ],
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "knowsAbout": [
+            "B2B Procurement",
+            "School Furniture",
+            "Office Supplies",
+            "Bulk Stationery",
+            "IT Equipment",
+            "Interior Design",
+            "Home Essentials"
+          ]
         },
         {
           "@type": "WebSite",
-          "@id": "https://onevendorsolutions.com/#website",
-          "url": "https://onevendorsolutions.com",
+          "@id": "https://www.onevendorsolutions.com/#website",
+          "url": "https://www.onevendorsolutions.com",
           "name": "One Vendor Solutions",
-          "publisher": { "@id": "https://onevendorsolutions.com/#organization" },
+          "description": "India's trusted B2B bulk procurement partner for schools, offices, and homes.",
+          "publisher": { "@id": "https://www.onevendorsolutions.com/#organization" },
           "inLanguage": "en-IN",
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://onevendorsolutions.com/catalog?search={search_term_string}"
+              "urlTemplate": "https://www.onevendorsolutions.com/catalog?search={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
@@ -196,10 +246,8 @@
     </script>
   </head>
   <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-primary focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:text-sm focus:shadow-lg">
-      Skip to main content
-    </a>
+    <!-- Accessibility: skip to main content -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
     <div id="root" role="application" aria-label="One Vendor Solutions"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

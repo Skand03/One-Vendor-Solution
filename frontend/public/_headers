@@ -1,0 +1,30 @@
+# One Vendor Solutions — Vercel _headers
+# Applied to all responses
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Cache static assets forever (content-hashed by Vite)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images for 30 days
+/all-images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# Never cache HTML — ensure fresh SEO content
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Cache manifest + sitemap for 1 day
+/manifest.json
+  Cache-Control: public, max-age=86400
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=86400

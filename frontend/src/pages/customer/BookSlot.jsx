@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getBreadcrumbSchema } from '../../utils/seo';
 import api from '../../services/api';
 
 const BookSlot = () => {
@@ -36,8 +36,32 @@ const BookSlot = () => {
 
   useEffect(() => {
     setMetaTags(
-      'Book a Procurement Service Slot',
-      'Schedule a personalized B2B sourcing consultation or site inspection. Select your category, service, preferred date, and time slot.'
+      'Book a Service Slot — One Vendor Solutions',
+      'Schedule a personalized B2B sourcing consultation or site inspection with One Vendor Solutions. Choose category, service, date and time — serving PAN India.',
+      '/og-image.jpg',
+      'website',
+      {
+        keywords: 'book procurement slot, site inspection booking, B2B consultation India, One Vendor Solutions booking',
+      }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getBreadcrumbSchema([
+            { name: 'Home',       path: '/' },
+            { name: 'Book Slot',  path: '/book-slot' },
+          ]),
+          {
+            '@type': 'ReservationPackage',
+            name: 'Book a Procurement Service Slot',
+            description: 'Schedule a site inspection or B2B sourcing consultation with One Vendor Solutions.',
+            provider: { '@id': 'https://www.onevendorsolutions.com/#organization' },
+            url: 'https://www.onevendorsolutions.com/book-slot',
+          },
+        ],
+      },
+      'ld-json-bookslot'
     );
 
     // Fetch categories on load

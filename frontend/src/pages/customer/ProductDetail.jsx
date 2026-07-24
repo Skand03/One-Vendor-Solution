@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/seo';
 import api from '../../services/api';
 
 const ProductDetail = () => {
@@ -32,8 +32,28 @@ const ProductDetail = () => {
         setService(res.data);
         
         setMetaTags(
-          res.data.name,
-          `${res.data.name} B2B installation services. consolidated sourcing and direct bulk pricing margins by One Vendor Solutions.`
+          `${res.data.name} — One Vendor Solutions`,
+          `${res.data.name}: B2B bulk procurement and professional installation service by One Vendor Solutions. Consolidated sourcing and direct wholesale pricing. Serving PAN India.`,
+          res.data.imageUrl || '/og-image.jpg',
+          'website',
+          {
+            keywords: `${res.data.name}, bulk procurement India, wholesale ${res.data.name}, One Vendor Solutions ${res.data.categoryName}`,
+          }
+        );
+        setSchemaMarkup(
+          {
+            '@context': 'https://schema.org',
+            '@graph': [
+              getServiceSchema(res.data),
+              getBreadcrumbSchema([
+                { name: 'Home',             path: '/' },
+                { name: 'Catalog',          path: '/catalog' },
+                { name: res.data.categoryName, path: `/catalog/${category}` },
+                { name: res.data.name,      path: `/catalog/${category}/${productId}` },
+              ]),
+            ],
+          },
+          'ld-json-product'
         );
       } catch (err) {
         console.error('Error fetching service details:', err);

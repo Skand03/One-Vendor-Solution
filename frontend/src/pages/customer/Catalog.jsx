@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import api from '../../services/api';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getBreadcrumbSchema } from '../../utils/seo';
 
 const Catalog = () => {
   const { category: categoryParam } = useParams();
@@ -55,8 +55,33 @@ const Catalog = () => {
     
     // Set dynamic metadata SEO tags
     setMetaTags(
-      `${targetCategory.name} Catalog`,
-      `Explore premium B2B products and professional installation services in ${targetCategory.name}. Bulk procurement made simple by One Vendor Solutions.`
+      `${targetCategory.name} Catalog — One Vendor Solutions`,
+      `Explore premium B2B ${targetCategory.name} products and professional installation services. Bulk procurement made simple by One Vendor Solutions — PAN India delivery.`,
+      '/og-image.jpg',
+      'website',
+      {
+        keywords: `${targetCategory.name} bulk procurement, ${targetCategory.name} wholesale India, One Vendor Solutions ${targetCategory.name}, B2B ${targetCategory.name} supplier`,
+      }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getBreadcrumbSchema([
+            { name: 'Home',    path: '/' },
+            { name: 'Catalog', path: '/catalog' },
+            { name: targetCategory.name, path: `/catalog/${targetCategory.name.replace(/\s+/g, '-')}` },
+          ]),
+          {
+            '@type': 'CollectionPage',
+            name: `${targetCategory.name} — One Vendor Solutions`,
+            description: `Browse ${targetCategory.name} bulk procurement products from One Vendor Solutions.`,
+            url: `https://www.onevendorsolutions.com/catalog/${targetCategory.name.replace(/\s+/g, '-')}`,
+            provider: { '@id': 'https://www.onevendorsolutions.com/#organization' },
+          },
+        ],
+      },
+      'ld-json-catalog'
     );
   }, [categoryParam, categories]);
 

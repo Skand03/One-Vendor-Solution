@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import api from '../../services/api';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getBreadcrumbSchema, getFAQSchema } from '../../utils/seo';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -30,8 +30,42 @@ const Home = () => {
   // Fetch Data on Load
   useEffect(() => {
     setMetaTags(
-      'Home',
-      'One Vendor Solutions is the premier B2B procurement platform for School, Office, and Home bulk essentials. Streamline your supply chain with a single, trusted partner.'
+      'One Vendor Solutions | School, Office & Home Bulk Procurement India',
+      "One Vendor Solutions — India's trusted B2B bulk procurement partner. Single-point sourcing for schools, offices and homes: furniture, stationery, IT, interiors & more. Based in Gorakhpur, serving PAN India.",
+      '/og-image.jpg',
+      'website',
+      {
+        keywords: 'One Vendor Solutions, B2B procurement India, bulk procurement Gorakhpur, school essentials wholesale, office supplies bulk India, home essentials supplier, Ujjwal Pandey, single vendor procurement',
+      }
+    );
+    // Inject Organisation + WebSite + FAQ structured data
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          ...getOrganizationSchema()['@graph'],
+          getBreadcrumbSchema([{ name: 'Home', path: '/' }]),
+          getFAQSchema([
+            {
+              question: 'What is One Vendor Solutions?',
+              answer: 'One Vendor Solutions is India\'s leading B2B bulk procurement partner providing single-point sourcing for schools, offices, and homes across India.',
+            },
+            {
+              question: 'What products does One Vendor Solutions supply?',
+              answer: 'We supply school furniture, office supplies, stationery, IT equipment, home essentials, interior fit-outs, and maintenance services — all under one invoice.',
+            },
+            {
+              question: 'Where is One Vendor Solutions located?',
+              answer: 'One Vendor Solutions is headquartered in Gorakhpur, Uttar Pradesh, India, and serves clients PAN India.',
+            },
+            {
+              question: 'How do I get a quote from One Vendor Solutions?',
+              answer: 'You can submit a bulk procurement quote request on our Enquiry page or call +91 85760 84127. Our specialist responds within 24 hours.',
+            },
+          ]),
+        ],
+      },
+      'ld-json-home'
     );
 
     const loadData = async () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getBreadcrumbSchema } from '../../utils/seo';
 import api from '../../services/api';
 
 const EnquiryForm = () => {
@@ -21,8 +21,32 @@ const EnquiryForm = () => {
 
   useEffect(() => {
     setMetaTags(
-      'Request a Quote',
-      'Request a custom wholesale price quote for School, Office, or Home bulk supplies. Get a response within 24 hours.'
+      'Request a Quote — One Vendor Solutions',
+      'Request a custom wholesale price quote for School, Office, or Home bulk supplies from One Vendor Solutions. Bulk pricing, single-point sourcing — response within 24 hours.',
+      '/og-image.jpg',
+      'website',
+      {
+        keywords: 'bulk procurement quote India, RFQ One Vendor Solutions, wholesale price request, B2B quote school office home',
+      }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getBreadcrumbSchema([
+            { name: 'Home',            path: '/' },
+            { name: 'Request a Quote', path: '/enquiry' },
+          ]),
+          {
+            '@type': 'WebPage',
+            name: 'Request a Quote — One Vendor Solutions',
+            description: 'Submit a bulk procurement quotation request for school, office or home essentials.',
+            url: 'https://www.onevendorsolutions.com/enquiry',
+            provider: { '@id': 'https://www.onevendorsolutions.com/#organization' },
+          },
+        ],
+      },
+      'ld-json-enquiry'
     );
 
     const loadCategories = async () => {

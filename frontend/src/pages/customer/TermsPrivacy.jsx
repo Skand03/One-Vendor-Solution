@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { setMetaTags, setSchemaMarkup, getBreadcrumbSchema } from '../../utils/seo';
 
 const TermsPrivacy = () => {
+  useEffect(() => {
+    setMetaTags(
+      'Terms of Service & Privacy Policy — One Vendor Solutions',
+      'Read the Terms of Service and Privacy Policy for One Vendor Solutions. Understand our data handling, B2B sourcing terms, and booking conditions.',
+      '/og-image.jpg',
+      'website',
+      { robots: 'index, follow' }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Terms & Privacy', path: '/terms-privacy' },
+          ]),
+        ],
+      },
+      'ld-json-terms'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-surface font-body-md text-on-surface">
       <Navbar />

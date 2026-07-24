@@ -1,4 +1,49 @@
+# One Vendor Solutions — robots.txt
+# https://www.onevendorsolutions.com
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /api/
+Disallow: /api/*
+Disallow: /confirmation
+Disallow: /login
+Disallow: /signup
 
-Sitemap: https://onevendorsolutions.com/sitemap.xml
+# Prevent crawling of query-string junk
+Disallow: /*?*sort=
+Disallow: /*?*page=
+Disallow: /*?*filter=
+
+# Crawl-delay for polite bots
+Crawl-delay: 10
+
+# Allow major search engine bots explicitly
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.onevendorsolutions.com/sitemap.xml

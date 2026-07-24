@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getContactPageSchema, getBreadcrumbSchema } from '../../utils/seo';
 import api from '../../services/api';
 
 const ContactUs = () => {
@@ -19,8 +19,26 @@ const ContactUs = () => {
 
   useEffect(() => {
     setMetaTags(
-      'Contact Us',
-      'Get in touch with One Vendor Solutions. Reach our procurement specialist team for custom wholesale orders, vendor partnership details, and product information.'
+      'Contact Us — One Vendor Solutions',
+      'Contact One Vendor Solutions for bulk procurement quotes, vendor partnerships, and custom supply chain solutions. Call +91 85760 84127 or email onevendorsolutions@gmail.com.',
+      '/og-image.jpg',
+      'website',
+      {
+        keywords: 'contact One Vendor Solutions, bulk procurement enquiry India, One Vendor Solutions phone number, B2B vendor contact Gorakhpur',
+      }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getContactPageSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Contact Us', path: '/contact' },
+          ]),
+        ],
+      },
+      'ld-json-contact'
     );
   }, []);
 

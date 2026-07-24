@@ -2,13 +2,40 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { setMetaTags } from '../../utils/seo';
+import { setMetaTags, setSchemaMarkup, getOrganizationSchema, getAboutPageSchema, getBreadcrumbSchema } from '../../utils/seo';
 
 const AboutUs = () => {
   useEffect(() => {
     setMetaTags(
-      'About Us',
-      'Learn about One Vendor Solutions, our founder Ujjwal Pandey, and how we are redefining B2B procurement and supply chains for modern corporate and education sectors.'
+      'About Us — One Vendor Solutions',
+      'Learn about One Vendor Solutions, founded by Ujjwal Pandey. We are redefining B2B procurement and supply chains for schools, offices, and homes across India.',
+      '/all-images/Onevendorsolutions/CEO.jpeg',
+      'website',
+      {
+        keywords: 'About One Vendor Solutions, Ujjwal Pandey CEO, B2B procurement company India, Gorakhpur procurement firm',
+      }
+    );
+    setSchemaMarkup(
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          getAboutPageSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About Us', path: '/about' },
+          ]),
+          {
+            '@type': 'Person',
+            '@id': 'https://www.onevendorsolutions.com/#ujjwalpandey',
+            name: 'Ujjwal Pandey',
+            jobTitle: 'CEO & Founder',
+            worksFor: { '@id': 'https://www.onevendorsolutions.com/#organization' },
+            image: 'https://www.onevendorsolutions.com/all-images/Onevendorsolutions/CEO.jpeg',
+            description: 'Ujjwal Pandey is the CEO & Founder of One Vendor Solutions, leading India\'s trusted B2B bulk procurement platform since 2023.',
+          },
+        ],
+      },
+      'ld-json-about'
     );
   }, []);
 
